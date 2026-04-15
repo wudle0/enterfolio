@@ -1,0 +1,20 @@
+/* theme.ts 팔레트와 맞춤 — SCSS/MUI 공통 참조용 */
+:root {
+	/* index.html 나눔스퀘어 네오 CDN(@font-face 이름)과 동일 스택 */
+	--pf-font-sans:
+		"NanumSquareNeoVariable", "NanumSquareNeo", -apple-system, BlinkMacSystemFont,
+		"Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+	--pf-primary: #fa9600;
+	--pf-text: #222222;
+	--pf-text-muted: #666666;
+	--pf-paper: #fafafa;
+	--pf-border: rgba(0, 0, 0, 0.06);
+	--pf-border-strong: rgba(0, 0, 0, 0.08);
+	--pf-primary-soft: rgba(37, 99, 235, 0.06);
+	--pf-primary-line: rgba(37, 99, 235, 0.2);
+	--pf-primary-line-soft: rgba(37, 99, 235, 0.15);
+	--pf-layout-max: 1024px;
+	--pf-radius-pill: 999px;
+	--pf-radius-card: 12px;
+	--pf-shadow-hover: 0 8px 28px rgba(37, 99, 235, 0.12);
+}

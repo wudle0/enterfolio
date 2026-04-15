@@ -1,0 +1,55 @@
+@use "sass:math";
+
+/// 글꼴 묶음. $size: 단위 없는 숫자 → px, rem·px 등 길이 → 그대로, null → 크기·자동 행간 생략
+/// @include font-style(14, var(--pf-text), 600);
+/// @include font-style(0.95rem, var(--pf-text-muted), 400, 1.65);
+/// @include font-style($size: null, $color: var(--pf-primary), $weight: 600);
+@mixin font-style(
+	$size: null,
+	$color: null,
+	$weight: 400,
+	$line-height: null,
+	$letter-spacing: null,
+	$family: null
+) {
+	font-style: normal;
+	font-weight: $weight;
+
+	@if $family != null {
+		font-family: $family;
+	}
+
+	@if $size != null {
+		@if math.is-unitless($size) {
+			font-size: $size * 1px;
+		} @else {
+			font-size: $size;
+		}
+
+		@if $line-height != null {
+			line-height: $line-height;
+		} @else if math.is-unitless($size) {
+			@if $size == 12 {
+				line-height: 16px;
+			} @else if $size == 20 {
+				line-height: 20px;
+			} @else if $size == 32 {
+				line-height: 38px;
+			} @else {
+				line-height: ($size + 4) * 1px;
+			}
+		} @else {
+			line-height: 1.35;
+		}
+	} @else if $line-height != null {
+		line-height: $line-height;
+	}
+
+	@if $letter-spacing != null {
+		letter-spacing: $letter-spacing;
+	}
+
+	@if $color != null {
+		color: $color;
+	}
+}

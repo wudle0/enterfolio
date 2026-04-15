@@ -1,0 +1,64 @@
+@use "../base/mixins" as *;
+
+$hero-emoji-family: ("Mona12 Color Emoji", "Mona12 Emoji", "Mona12 Text KR", "Mona10", sans-serif);
+
+.site-nav {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	padding: 12px 8px;
+	background-color: rgba(255, 255, 255, 0.92);
+	backdrop-filter: blur(8px);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+
+	@media (min-width: 900px) {
+		gap: 24px;
+	}
+
+	.site-nav-emoji {
+		@include font-style(
+			1rem,
+			var(--pf-text),
+			400,
+			$letter-spacing: 0.12em,
+			$family: $hero-emoji-family
+		);
+	}
+	.site-nav-logo {
+		display: flex;
+		align-items: flex-end;
+		gap: 4px;
+		padding: 4px;
+		text-decoration: none;
+	}
+
+	.site-nav-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		justify-content: center;
+	}
+
+	.site-nav-link {
+		@include font-style(0.9rem, var(--pf-text-muted), 500);
+		text-decoration: none;
+		padding: 4px 0;
+		border-bottom: 2px solid transparent;
+		transition:
+			color 0.15s ease,
+			border-color 0.15s ease;
+
+		&:hover {
+			color: var(--pf-primary);
+			border-bottom-color: var(--pf-primary);
+		}
+	}
+}

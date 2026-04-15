@@ -1,0 +1,44 @@
+/* mona-font: mona.woff2·"Mona" 없음 → web/mona.css의 실제 파일명·패밀리명 사용 */
+
+@font-face {
+	font-family: "Mona10";
+	src: url("https://cdn.jsdelivr.net/gh/MonadABXY/mona-font@main/web/Mona10.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Mona12 Text KR";
+	src: url("https://cdn.jsdelivr.net/gh/MonadABXY/mona-font@main/web/Mona12TextKR.woff2")
+		format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Mona12 Emoji";
+	src: url("https://cdn.jsdelivr.net/gh/MonadABXY/mona-font@main/web/Mona12Emoji.woff2")
+		format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Mona12 Color Emoji";
+	src: url("https://cdn.jsdelivr.net/gh/MonadABXY/mona-font@main/web/Mona12ColorEmoji.woff2")
+		format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Jeju";
+	src: url("../../assets/fonts/jeju.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}

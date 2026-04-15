@@ -1,0 +1,77 @@
+@use "../base/mixins" as *;
+
+.education {
+	padding-bottom: 48px;
+
+	@media (min-width: 900px) {
+		padding-bottom: 64px;
+	}
+
+	.education-title {
+		@include font-style(1.35rem, var(--pf-text), 700);
+		text-align: center;
+		margin: 0 0 32px;
+
+		@media (min-width: 900px) {
+			font-size: 1.75rem;
+		}
+	}
+
+	.education-entry {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 12px;
+
+		@media (min-width: 600px) {
+			grid-template-columns: minmax(120px, 160px) 1fr;
+			gap: 24px;
+		}
+
+		.education-when {
+			@include font-style(0.85rem, var(--pf-primary), 600);
+			margin: 0;
+		}
+
+		.education-panel {
+			border-left: none;
+
+			@media (min-width: 600px) {
+				border-left: 2px solid var(--pf-primary-line-soft);
+				padding-left: 20px;
+			}
+
+			.education-school {
+				@include font-style(1.02rem, var(--pf-text), 700);
+				margin: 0 0 4px;
+			}
+			.education-major {
+				@include font-style(0.9rem, var(--pf-text-muted), 400);
+				margin: 0 0 12px;
+			}
+			.education-bullets {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				.education__bullet-group {
+					margin-bottom: 13px;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+				.education__bullet-line {
+					display: block;
+					@include font-style(0.88rem, var(--pf-text-muted), 400, 1.65);
+				}
+			}
+			.education-score-label {
+				@include font-style(1.02rem, var(--pf-text), 700);
+				margin: 0 0 4px;
+			}
+			.education-score-value {
+				@include font-style(0.9rem, var(--pf-text-muted), 400);
+				margin: 0;
+			}
+		}
+	}
+}

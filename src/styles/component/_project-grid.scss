@@ -1,0 +1,136 @@
+@use "../base/mixins" as *;
+
+.pf-project-grid {
+	padding-bottom: 48px;
+
+	@media (min-width: 900px) {
+		padding-bottom: 64px;
+	}
+}
+
+.pf-project-grid__title {
+	@include font-style(1.35rem, var(--pf-text), 700);
+	text-align: center;
+	margin: 0 0 4px;
+
+	@media (min-width: 900px) {
+		font-size: 1.75rem;
+	}
+}
+
+.pf-project-grid__subtitle {
+	@include font-style(0.95rem, var(--pf-text-muted), 400);
+	text-align: center;
+	margin: 0 0 40px;
+}
+
+.pf-project-grid__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.pf-project-card {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	overflow: hidden;
+	text-decoration: none;
+	color: inherit;
+	border: 1px solid var(--pf-border-strong);
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+	box-shadow: none;
+
+	&:hover {
+		box-shadow: var(--pf-shadow-hover);
+		transform: translateY(-2px);
+	}
+
+	@media (min-width: 900px) {
+		flex-direction: row;
+
+		&--alt {
+			flex-direction: row-reverse;
+		}
+	}
+}
+
+.pf-project-card__media {
+	flex: none;
+	width: 100%;
+	min-height: 140px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+
+	@media (min-width: 900px) {
+		flex: 0 0 38%;
+		width: auto;
+		min-height: 180px;
+	}
+
+	&--even {
+		background: linear-gradient(145deg, #eff6ff 0%, #dbeafe 100%);
+	}
+
+	&--odd {
+		background: linear-gradient(145deg, #ecfdf5 0%, #d1fae5 100%);
+	}
+}
+
+.pf-project-card__shape {
+	width: 100%;
+	max-width: 200px;
+	height: auto;
+	object-fit: contain;
+	display: block;
+}
+
+.pf-project-card__body {
+	flex: 1;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 16px;
+
+	@media (min-width: 900px) {
+		padding: 28px;
+	}
+}
+
+.pf-project-card__title-line {
+	@include font-style(1.05rem, var(--pf-text), 700, 1.4);
+	margin: 0;
+}
+
+.pf-project-card__desc {
+	@include font-style(0.9rem, var(--pf-text-muted), 400, 1.55);
+	margin: 4px 0 0;
+}
+
+.pf-project-card__stack {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+
+.pf-project-grid__more-wrap {
+	display: flex;
+	justify-content: center;
+	margin-top: 32px;
+}
+
+.pf-project-grid__more.MuiButton-root {
+	border-radius: var(--pf-radius-pill);
+	padding: 10px 28px;
+	@include font-style($size: null, $weight: 600);
+	text-transform: none;
+	border-width: 2px;
+
+	&:hover {
+		border-width: 2px;
+	}
+}

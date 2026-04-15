@@ -1,0 +1,15 @@
+@use "base";
+@use "component";
+
+html {
+	touch-action: pan-x pan-y;
+	-ms-touch-action: pan-x pan-y;
+}
+
+body {
+	font-family: var(--pf-font-sans);
+	text-rendering: optimizelegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	touch-action: pan-x pan-y;
+}

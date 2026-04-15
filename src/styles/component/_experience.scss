@@ -1,0 +1,132 @@
+@use "../base/mixins" as *;
+
+.experience {
+	padding-bottom: 48px;
+
+	@media (min-width: 900px) {
+		padding-bottom: 64px;
+	}
+
+	.experience-title {
+		@include font-style(1.1rem, var(--pf-text), 700);
+		text-align: center;
+		margin: 0 0 4px;
+
+		@media (min-width: 900px) {
+			font-size: 1.3rem;
+		}
+	}
+
+	.experience-subtitle {
+		@include font-style(0.8rem, var(--pf-text-muted), 400);
+		text-align: center;
+		margin: 0 0 32px;
+
+		@media (min-width: 900px) {
+			font-size: 0.9rem;
+		}
+	}
+
+	.experience-section-label {
+		@include font-style(0.85rem, var(--pf-primary), 600);
+		text-align: center;
+		margin: 0 0 20px;
+	}
+
+	.experience-section-label--spaced {
+		margin-top: 32px;
+	}
+
+	.experience-entry {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 12px;
+
+		@media (min-width: 600px) {
+			grid-template-columns: minmax(100px, 140px) 1fr;
+			gap: 20px;
+		}
+	}
+
+	.experience-meta {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 8px;
+		padding-top: 2px;
+
+		@media (min-width: 600px) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	.experience-dot {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background-color: var(--pf-primary);
+		flex-shrink: 0;
+	}
+
+	.experience-period {
+		@include font-style(0.85rem, var(--pf-text-muted), 600);
+	}
+
+	.experience-panel {
+		border-left: none;
+
+		@media (min-width: 600px) {
+			border-left: 2px solid var(--pf-primary-line);
+			padding-left: 20px;
+			margin-left: 5px;
+		}
+	}
+
+	.experience-org {
+		@include font-style(1.05rem, var(--pf-text), 700);
+		margin: 0 0 4px;
+	}
+
+	.experience-role {
+		@include font-style(0.9rem, var(--pf-text-muted), 400, 1.5);
+		margin: 0;
+	}
+
+	.experience-stack {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 4px;
+		margin: 16px 0;
+	}
+
+	.experience-detail-btn {
+		justify-content: flex-start;
+		text-transform: none;
+		padding: 0;
+		min-width: 0;
+		@include font-style(0.85rem, var(--pf-primary), 500);
+
+		&:hover {
+			background-color: transparent;
+			text-decoration: underline;
+		}
+	}
+
+	.experience-expand-icon {
+		transition: transform 0.2s ease;
+
+		&--open {
+			transform: rotate(180deg);
+		}
+	}
+
+	.experience-detail {
+		@include font-style(0.85rem, var(--pf-text-muted), 400, 1.55);
+		margin-top: 12px;
+		padding: 12px;
+		background-color: var(--pf-primary-soft);
+		border-radius: 8px;
+	}
+}

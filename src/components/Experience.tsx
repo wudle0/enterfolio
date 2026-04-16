@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Button, Stack, Tooltip, Typography } from "@mui/material";
+import { Box, Button, Link, Stack, Tooltip, Typography } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { site } from "../data/content";
 import { TechIcon } from "./TechIcon";
@@ -10,6 +10,42 @@ type Entry = {
 	org: string;
 	role: string[];
 	stack: string[];
+};
+
+const detailByEntryId: Record<string, string[]> = {
+	w1: [
+		"디자인시스템 구성 및 정립 [70%]",
+		"목업 환경 구축 [100%]",
+		"IaaS, PaaS 제품 웹 UI 개발 [75%]",
+		"ai 기반 신규 서비스 (LLM) UI 개발 [100%]",
+		"* 현업 보안 유지 및 트래픽 관리 이슈로 인해 페이지 바로가기는 제공하지 않습니다.",
+	],
+	w2: [
+		"웹앱 마크업 및 프론트 개발 [70%]",
+		"백오피스 프론트 개발 [100%]",
+		"자사 홈페이지 개발 [100%]",
+		"* 현업 보안 유지 및 트래픽 관리 이슈로 인해 페이지 바로가기는 제공하지 않습니다.",
+	],
+	w3: [
+		"논문 플랫폼 검색 모듈",
+		"세무사무소 신고 자동화 플랫폼",
+		"가구사 이벤트 페이지",
+		"공기관 PC 메신저",
+		"공기관 정책 테스트",
+		"* 현업 보안 유지 및 트래픽 관리 이슈로 인해 페이지 바로가기는 제공하지 않습니다.",
+	],
+	p1: ["기획 및 정책 제작 [40%]", "웹 개발 [100%]", "웹뷰 앱 제작 [100%]", "* homewhere.pages.dev"],
+	p2: [
+		"기획 및 정책 제작 [100%]",
+		"웹 개발 [100%]",
+		"* 보안 유지 및 트래픽 관리 이슈로 인해 페이지 바로가기는 제공하지 않습니다.",
+	],
+	p3: [
+		"기획 및 정책 제작 [100%]",
+		"웹 개발 [100%]",
+		"* https://presenttest.netlify.app/",
+		"* https://homehobby.netlify.app/",
+	],
 };
 
 function TimelineBlock({ entries }: { entries: Entry[] }) {
@@ -65,7 +101,34 @@ function TimelineBlock({ entries }: { entries: Entry[] }) {
 							</Button>
 							{open ? (
 								<Typography className="experience-detail">
-									상세 업무 내용은 원본 포트폴리오를 참고하거나, 이 영역에 직접 작성하면 됩니다.
+									{(
+										detailByEntryId[e.id] ?? [
+											"상세 업무 내용은 원본 포트폴리오를 참고하거나, 이 영역에 직접 작성하면 됩니다.",
+										]
+									).map((line) => {
+										const isStarLine = line.startsWith("* ");
+										const text = isStarLine ? line.slice(2) : line;
+										const isUrlLike = /^(https?:\/\/)?[a-z0-9.-]+\.[a-z]{2,}(\/\S*)?$/i.test(text);
+										const href = isUrlLike && !text.startsWith("http") ? `https://${text}` : text;
+
+										return (
+											<Box
+												key={line}
+												component="span"
+												display="block"
+												sx={isStarLine ? { mt: "12px" } : undefined}>
+												{isStarLine && isUrlLike ? (
+													<Link href={href} target="_blank" rel="noopener noreferrer">
+														{text}
+													</Link>
+												) : isStarLine ? (
+													line
+												) : (
+													`- ${line}`
+												)}
+											</Box>
+										);
+									})}
 								</Typography>
 							) : null}
 						</Box>

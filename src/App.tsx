@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { Container } from "@mui/material";
 import { type Role, getSite } from "./data/content";
@@ -14,6 +15,10 @@ function Portfolio() {
 	const validRoles: Role[] = ["frontend", "publisher"];
 	const resolvedRole: Role = validRoles.includes(role as Role) ? (role as Role) : "frontend";
 	const site = getSite(resolvedRole);
+
+	useEffect(() => {
+		document.title = site.title;
+	}, [site.title]);
 
 	return (
 		<Container component="main" maxWidth={false} disableGutters className="pf-main">

@@ -10,7 +10,7 @@ export const site = {
 	nav: [
 		{ href: "#skill", label: "기술" },
 		{ href: "#experience", label: "경력" },
-		{ href: "#education", label: "학력 및 자격증" },
+		{ href: "#education", label: "교육 및 자격증" },
 	],
 	features: {
 		kicker: "핵심 역량",
@@ -80,6 +80,7 @@ export const site = {
 					"MUI",
 					"ant-design",
 					"confluence",
+					"Vite",
 				],
 			},
 			{
@@ -116,7 +117,7 @@ export const site = {
 				id: "p3",
 				period: "- 2022",
 				org: "심리테스트 프로젝트",
-				role: ["https://presenttest.netlify.app/,https://homehobby.netlify.app/"],
+				role: ["선물 추천 테스트 및 취미 테스트 프로젝트"],
 				stack: ["HTML5", "CSS3", "Javascript"],
 			},
 		],
@@ -139,11 +140,8 @@ export const site = {
 		],
 	},
 	footer: {
-		lines: ["감사합니다.", " 더 궁금한 점이 있다면", " 편하게 연락주세요."],
+		lines: ["감사합니다.", "더 궁금한 점이 있다면 편하게 연락주세요."],
 		emailLabel: "이메일",
 		email: "wudle.001@gmail.com",
-		ghLabel: "Github",
-		ghUser: "@",
-		ghHref: "https://github.com/MeganMagic",
 	},
 };

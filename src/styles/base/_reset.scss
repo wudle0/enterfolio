@@ -11,7 +11,13 @@
 	box-sizing: border-box;
 }
 
+/* 앵커 이동 시 sticky nav 높이만큼 위 여백 */
+section[id] {
+	scroll-margin-top: var(--pf-scroll-offset, 72px);
+}
+
 :root {
+	scroll-behavior: smooth;
 	line-height: 1;
 	overflow-wrap: break-word;
 	tab-size: 4;

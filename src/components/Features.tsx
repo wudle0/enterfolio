@@ -19,7 +19,9 @@ export function Features() {
 				{f.items.map((item, i) => {
 					const imageSrc = featImages[i];
 					const thumbClassName =
-						imageSrc === featureThreeImg ? "features-thumb features-thumb--feature-three" : "features-thumb";
+						imageSrc === featureThreeImg
+							? "features-thumb features-thumb--feature-three"
+							: "features-thumb";
 
 					return (
 						<Grid size={{ xs: 12, sm: 6, md: 4 }} key={item.title}>
@@ -35,22 +37,22 @@ export function Features() {
 											className="features-thumb-img"
 										/>
 									</Box>
-								<Typography component="h3" className="features-item-title">
-									{item.title}
-								</Typography>
-								<Box className="features-body">
-									{Array.isArray(item.body) ? (
-										item.body.map((para) => (
-											<Typography key={para} component="p" className="features-body-p">
-												{para}
+									<Typography component="h3" className="features-item-title">
+										{item.title}
+									</Typography>
+									<Box className="features-body">
+										{Array.isArray(item.body) ? (
+											item.body.map((para) => (
+												<Typography key={para} component="p" className="features-body-p">
+													{para}
+												</Typography>
+											))
+										) : (
+											<Typography component="p" className="features-body-p">
+												{item.body}
 											</Typography>
-										))
-									) : (
-										<Typography component="p" className="features-body-p">
-											{item.body}
-										</Typography>
-									)}
-								</Box>
+										)}
+									</Box>
 								</CardContent>
 							</Card>
 						</Grid>

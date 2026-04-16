@@ -1,1 +1,14 @@
 @use "../base/mixins" as *;
+
+.footer {
+	padding-top: 32px;
+	border-top: 1px solid #e1e1e1;
+	text-align: center;
+	display: grid;
+	justify-items: center;
+	.footer-grid {
+		padding-bottom: 24px;
+		margin-top: 12px;
+		color: #939393;
+	}
+}

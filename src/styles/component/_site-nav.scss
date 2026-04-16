@@ -4,20 +4,64 @@ $hero-emoji-family: ("Mona12 Color Emoji", "Mona12 Emoji", "Mona12 Text KR", "Mo
 
 .site-nav {
 	position: sticky;
-	top: 0;
+	top: 8px;
 	z-index: 20;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
+	margin: 0 auto;
 	gap: 16px;
 	padding: 12px 8px;
 	background-color: rgba(255, 255, 255, 0.92);
-	backdrop-filter: blur(8px);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 
 	@media (min-width: 900px) {
 		gap: 24px;
+	}
+
+	&.site-nav--stuck {
+		width: fit-content;
+		max-width: calc(100% - 24px);
+		padding: 12px 18px;
+		background-color: rgba(255, 255, 255, 0.72);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.55);
+		border-radius: 999px;
+		box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+		/* orbit 컨테이너가 absolute이므로 overflow hidden 방지 */
+	}
+
+	/* nav 아래 트랙 — overflow로 좌우 잘림 */
+	.site-nav-train {
+		pointer-events: none;
+		position: absolute;
+		bottom: -22px;
+		left: 0;
+		width: 100%;
+		height: 22px;
+		overflow: hidden;
+	}
+
+	/* 이모지 3개를 4px 간격으로 묶은 그룹 — 함께 왼→오른쪽으로 이동 */
+	.site-nav-train-group {
+		position: absolute;
+		top: 75%;
+		translate: 0 -50%;
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		animation: nav-train-drift 10s linear infinite;
+	}
+
+	/* 개별 이모지 — 둥실둥실 bob */
+	.site-nav-train-car {
+		display: inline-flex;
+		font-size: 0.85rem;
+		line-height: 1;
+		animation: nav-train-bob 1.3s ease-in-out infinite alternate;
+		animation-delay: var(--bob-delay, 0s);
 	}
 
 	.site-nav-emoji {
@@ -29,6 +73,7 @@ $hero-emoji-family: ("Mona12 Color Emoji", "Mona12 Emoji", "Mona12 Text KR", "Mo
 			$family: $hero-emoji-family
 		);
 	}
+
 	.site-nav-logo {
 		display: flex;
 		align-items: flex-end;
@@ -60,5 +105,32 @@ $hero-emoji-family: ("Mona12 Color Emoji", "Mona12 Emoji", "Mona12 Text KR", "Mo
 			color: var(--pf-primary);
 			border-bottom-color: var(--pf-primary);
 		}
+	}
+}
+
+/* 그룹 전체가 좌→우로 흐름 — left: -5em ~ 100% 사용해 트랙 기준 */
+@keyframes nav-train-drift {
+	from {
+		left: -5em;
+	}
+	to {
+		left: 100%;
+	}
+}
+
+/* 개별 이모지 둥실 bob */
+@keyframes nav-train-bob {
+	from {
+		transform: translateY(0px);
+	}
+	to {
+		transform: translateY(-7px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.site-nav-train-group,
+	.site-nav-train-car {
+		animation: none;
 	}
 }

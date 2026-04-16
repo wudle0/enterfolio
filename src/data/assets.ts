@@ -1,5 +1,13 @@
 /** devicon SVG (jsDelivr) — https://github.com/devicons/devicon */
 const D = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
+import iconVuex from "../assets/image/icon_vuex.png";
+import iconPinia from "../assets/image/icon_pinia.png";
+import iconEchart from "../assets/image/icon_echart.png";
+import iconLottie from "../assets/image/icon_lottie.png";
+import iconRecoil from "../assets/image/icon_recoil.png";
+import iconVite from "../assets/image/icon_vite.png";
+import iconZeplin from "../assets/image/icon_zeplin.png";
+import iconConfluence from "../assets/image/icon_confluence.png";
 
 /** `folder/file.svg` */
 function di(folder: string, file: string): string {
@@ -30,27 +38,27 @@ export const skillSrc: Record<string, string> = {
 	Scss: di("sass", "sass-original.svg"),
 
 	Redux: di("redux", "redux-original.svg"),
-	Recoil: di("react", "react-original.svg"),
-	Vuex: di("vuejs", "vuejs-original.svg"),
-	// Pinia devicon CDN 경로는 현재 403이라 Vue 아이콘으로 대체
-	Pinia: di("vuejs", "vuejs-original.svg"),
+	Recoil: iconRecoil,
+	Vuex: iconVuex,
+	Pinia: iconPinia,
 	MUI: di("materialui", "materialui-original.svg"),
 	"ant-design": di("antdesign", "antdesign-plain.svg"),
 	jQuery: di("jquery", "jquery-original.svg"),
 	"Chart.js": di("chartjs", "chartjs-original.svg"),
-	Echarts: di("javascript", "javascript-original.svg"),
-	Lottie: di("react", "react-original.svg"),
+	Echarts: iconEchart,
+	Lottie: iconLottie,
+	confluence: iconConfluence,
 
 	Webpack: di("webpack", "webpack-original.svg"),
 	GitHub: di("github", "github-original.svg"),
 	GitLab: di("gitlab", "gitlab-original.svg"),
 	CloudFlare: di("cloudflare", "cloudflare-original.svg"),
 	"Google Analytics": di("google", "google-original.svg"),
-	Vite: di("vite", "vite-original.svg"),
+	Vite: iconVite,
 
 	Figma: di("figma", "figma-original.svg"),
 	XD: di("xd", "xd-plain.svg"),
-	Zeplin: di("figma", "figma-original.svg"),
+	Zeplin: iconZeplin,
 	Photoshop: di("photoshop", "photoshop-plain.svg"),
 	Illustrator: di("illustrator", "illustrator-plain.svg"),
 

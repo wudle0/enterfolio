@@ -1,4 +1,4 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { site } from "../data/content";
 
 export function Footer() {
@@ -9,6 +9,7 @@ export function Footer() {
 				{f.lines.map((line) => (
 					<Box component="span" key={line} className="footer-line">
 						{line}
+						<br />
 					</Box>
 				))}
 			</Typography>
@@ -17,12 +18,6 @@ export function Footer() {
 					{f.emailLabel}
 				</Typography>
 				<Typography className="footer-email">{f.email}</Typography>
-				<Typography variant="caption" className="footer-label footer-label--spaced">
-					{f.ghLabel}
-				</Typography>
-				<Link href={f.ghHref} target="_blank" rel="noopener noreferrer" className="footer-link">
-					{f.ghUser}
-				</Link>
 			</Box>
 		</Box>
 	);

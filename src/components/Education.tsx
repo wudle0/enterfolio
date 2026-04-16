@@ -4,7 +4,7 @@ import { site } from "../data/content";
 export function Education() {
 	const { education: ed } = site;
 	return (
-		<Box component="section" aria-labelledby="edu-heading" className="education">
+		<Box component="section" id="education" aria-labelledby="edu-heading" className="education">
 			<Typography id="edu-heading" component="h2" className="education-title">
 				{ed.title}
 			</Typography>

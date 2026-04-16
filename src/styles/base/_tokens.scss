@@ -1,5 +1,7 @@
 /* theme.ts 팔레트와 맞춤 — SCSS/MUI 공통 참조용 */
+/* sticky nav 높이 기준 scroll-margin — 섹션 앵커 이동 시 nav에 가리지 않도록 */
 :root {
+	--pf-scroll-offset: 72px;
 	/* index.html 나눔스퀘어 네오 CDN(@font-face 이름)과 동일 스택 */
 	--pf-font-sans:
 		"NanumSquareNeoVariable", "NanumSquareNeo", -apple-system, BlinkMacSystemFont,

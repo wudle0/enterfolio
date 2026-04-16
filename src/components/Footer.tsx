@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import { site } from "../data/content";
+import type { SiteData } from "../data/content";
 
-export function Footer() {
+export function Footer({ site }: { site: SiteData }) {
 	const { footer: f } = site;
 	return (
 		<Box component="footer" className="footer">

@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
-import { site } from "../data/content";
+import type { SiteData } from "../data/content";
 
 const ORBIT_EMOJIS = ["🌏", "🌟", "💫"] as const;
 
-export function Hero() {
+export function Hero({ site }: { site: SiteData }) {
 	const { hero } = site;
 	return (
 		<Box component="header" id="top" className="hero">

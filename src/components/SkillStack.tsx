@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Box, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { site } from "../data/content";
+import type { SiteData } from "../data/content";
 import { TechIcon } from "./TechIcon";
 
-type Tab = (typeof site.skills.tabs)[number];
+type Tab = SiteData["skills"]["tabs"][number];
 
-export function SkillStack() {
+export function SkillStack({ site }: { site: SiteData }) {
 	const { skills } = site;
 	const [tab, setTab] = useState<Tab>("프론트엔드");
 	const list = skills.byTab[tab];

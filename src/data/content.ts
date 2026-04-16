@@ -1,43 +1,11 @@
-export const site = {
-	title: "우성민 | 퍼블리셔",
-	hero: {
-		line1: "안녕하세요,",
-		line2Prefix: "프론트엔드 개발자 ",
-		highlight: "우성민",
-		line2Suffix: "입니다.",
-		intro: ["프론트엔드 기술을 바탕으로 UI를 개발합니다."],
-	},
+export type Role = "frontend" | "publisher";
+
+const common = {
 	nav: [
 		{ href: "#skill", label: "기술" },
 		{ href: "#experience", label: "경력" },
 		{ href: "#education", label: "교육 및 자격증" },
 	],
-	features: {
-		kicker: "핵심 역량",
-		title: "창의적인 아이디에이션과 명료한 시스템 구축",
-		items: [
-			{
-				title: "모던 프론트엔드 개발",
-				body: [
-					"React.js/Vue.js를 이용한 프론트엔드 개발경험이 있으며, Javascript(ES6), typescript에 능숙합니다.",
-					"또한 MUI, antd 등의 UI 라이브러리 사용 경험이 있습니다.",
-				],
-			},
-			{
-				title: "차트 시각화 및 디자인 시스템",
-				body: [
-					"데이터 시각화를 위한 chart.js, echarts 등의 라이브러리 사용이 능숙합니다.",
-					"또한 컴포넌트 중심의 디자인 시스템 구축 경험이 있습니다.",
-				],
-			},
-			{
-				title: "커뮤니케이션 및 협업",
-				body: [
-					"Github,GitLab 등을 이용한 DVCS 경험과 Jira, Slack, Notion 등의 커뮤니케이션 툴 사용 경험을 통해 원활한 협업을 이룹니다.",
-				],
-			},
-		],
-	},
 	skills: {
 		title: "기술 스택 및 도구",
 		subtitle: "아래의 기술을 사용할 수 있습니다.",
@@ -145,3 +113,86 @@ export const site = {
 		email: "wudle.001@gmail.com",
 	},
 };
+
+const roleContent = {
+	frontend: {
+		title: "Frontend Developer | wudle",
+		hero: {
+			line1: "안녕하세요,",
+			line2Prefix: "프론트엔드 개발자 ",
+			highlight: "우성민",
+			line2Suffix: "입니다.",
+			intro: ["프론트엔드 기술을 바탕으로 UI를 개발합니다."],
+		},
+		features: {
+			kicker: "핵심 역량",
+			title: "창의적인 아이디에이션과 명료한 시스템 구축",
+			items: [
+				{
+					title: "모던 프론트엔드 개발",
+					body: [
+						"React.js/Vue.js를 이용한 프론트엔드 개발경험이 있으며, Javascript(ES6), typescript에 능숙합니다.",
+						"또한 MUI, antd 등의 UI 라이브러리 사용 경험이 있습니다.",
+					],
+				},
+				{
+					title: "차트 시각화 및 디자인 시스템",
+					body: [
+						"데이터 시각화를 위한 chart.js, echarts 등의 라이브러리 사용이 능숙합니다.",
+						"또한 컴포넌트 중심의 디자인 시스템 구축 경험이 있습니다.",
+					],
+				},
+				{
+					title: "커뮤니케이션 및 협업",
+					body: [
+						"Github,GitLab 등을 이용한 DVCS 경험과 Jira, Slack, Notion 등의 커뮤니케이션 툴 사용 경험을 통해 원활한 협업을 이룹니다.",
+					],
+				},
+			],
+		},
+	},
+	publisher: {
+		title: "UI Publisher | wudle",
+		hero: {
+			line1: "안녕하세요,",
+			line2Prefix: "UI 퍼블리셔 ",
+			highlight: "우성민",
+			line2Suffix: "입니다.",
+			intro: ["프론트엔드 기술을 바탕으로 UI를 개발합니다."],
+		},
+		features: {
+			kicker: "핵심 역량",
+			title: "창의적인 아이디에이션과 명료한 시스템 구축",
+			items: [
+				{
+					title: "모던 UI 개발",
+					body: [
+						"React.js/Vue.js를 이용한 프론트엔드 개발경험이 있으며, Javascript(ES6), typescript에 능숙합니다.",
+						"또한 MUI, antd 등의 UI 라이브러리 사용 경험이 있습니다.",
+					],
+				},
+				{
+					title: "차트 시각화 및 디자인 시스템",
+					body: [
+						"데이터 시각화를 위한 chart.js, echarts 등의 라이브러리 사용이 능숙합니다.",
+						"또한 컴포넌트 중심의 디자인 시스템 구축 경험이 있습니다.",
+					],
+				},
+				{
+					title: "커뮤니케이션 및 협업",
+					body: [
+						"Github,GitLab 등을 이용한 DVCS 경험과 Jira, Slack, Notion 등의 커뮤니케이션 툴 사용 경험을 통해 원활한 협업을 이룹니다.",
+					],
+				},
+			],
+		},
+	},
+} satisfies Record<Role, { title: string; hero: object; features: object }>;
+
+export function getSite(role: Role) {
+	return { ...common, ...roleContent[role] };
+}
+
+export type SiteData = ReturnType<typeof getSite>;
+
+export const site = getSite("frontend");

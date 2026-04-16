@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
-import { site } from "../data/content";
+import type { SiteData } from "../data/content";
 
-export function Education() {
+export function Education({ site }: { site: SiteData }) {
 	const { education: ed } = site;
 	return (
 		<Box component="section" id="education" aria-labelledby="edu-heading" className="education">

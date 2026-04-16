@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Box, Link, Stack } from "@mui/material";
-import { site } from "../data/content";
+import type { SiteData } from "../data/content";
 
 const ORBIT_EMOJIS = ["⭐", "✨", "🚀"] as const;
 
-export function SiteNav() {
+export function SiteNav({ site }: { site: SiteData }) {
 	const navRef = useRef<HTMLElement | null>(null);
 	const [isStuck, setIsStuck] = useState(false);
 

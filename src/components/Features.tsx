@@ -1,13 +1,13 @@
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { site } from "../data/content";
+import type { SiteData } from "../data/content";
 import featureOneImg from "../assets/image/img_feature_one.png";
 import featureTwoImg from "../assets/image/img_feature_two.png";
 import featureThreeImg from "../assets/image/img_feature_three.png";
 
 const featImages = [featureOneImg, featureTwoImg, featureThreeImg];
 
-export function Features() {
+export function Features({ site }: { site: SiteData }) {
 	const { features: f } = site;
 	return (
 		<Box component="section" aria-labelledby="features-heading" className="features">

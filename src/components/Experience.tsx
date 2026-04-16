@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, Button, Link, Stack, Tooltip, Typography } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { site } from "../data/content";
+import type { SiteData } from "../data/content";
 import { TechIcon } from "./TechIcon";
 
 type Entry = {
@@ -139,7 +139,7 @@ function TimelineBlock({ entries }: { entries: Entry[] }) {
 	);
 }
 
-export function Experience() {
+export function Experience({ site }: { site: SiteData }) {
 	const { experience: x } = site;
 	return (
 		<Box component="section" id="experience" aria-labelledby="exp-heading" className="experience">
